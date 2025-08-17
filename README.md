@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# 4ier.github.io
-=======
 # 4ier.github.io Documentation Site
 
 This is the source code for the [4ier.github.io](https://4ier.github.io) documentation site, hosting documentation for all 4ier open source projects.
@@ -67,20 +64,24 @@ git push origin main
 ## 🌐 Features
 
 ### Multi-language Support
+
 - **English**: Primary documentation language
 - **中文**: Complete Chinese translations for all documentation
 
 ### Responsive Design
+
 - Mobile-first responsive design
 - Optimized for desktop, tablet, and mobile devices
 - Clean, professional styling
 
 ### Automatic Deployment
+
 - GitHub Actions workflow for automatic deployment
 - Markdown to HTML conversion with syntax highlighting
 - Consistent styling across all documentation pages
 
 ### SEO Optimized
+
 - Proper meta tags and descriptions
 - Semantic HTML structure
 - Fast loading times
@@ -144,6 +145,7 @@ python -m http.server 8000
 ### Adding New Markdown Documentation
 
 The GitHub Actions workflow automatically converts `.md` files to `.html` with:
+
 - Proper styling and navigation
 - Syntax highlighting for code blocks
 - Table of contents generation
@@ -154,6 +156,7 @@ Simply add your `.md` files to the appropriate directory and they'll be converte
 ## 📱 Supported Platforms
 
 The documentation site is optimized for:
+
 - **Desktop browsers** (Chrome, Firefox, Safari, Edge)
 - **Mobile browsers** (iOS Safari, Chrome Mobile, Firefox Mobile)
 - **CLI browsers** (w3m, lynx) - Basic support
@@ -163,10 +166,11 @@ The documentation site is optimized for:
 
 Visit [https://4ier.github.io](https://4ier.github.io) to see the live documentation site.
 
-### Project URLs:
-- **Main site**: https://4ier.github.io
-- **Retire-Cluster English**: https://4ier.github.io/retire-cluster/
-- **Retire-Cluster Chinese**: https://4ier.github.io/retire-cluster/README_CN.html
+### Project URLs
+
+- **Main site**: <https://4ier.github.io>
+- **Retire-Cluster English**: <https://4ier.github.io/retire-cluster/>
+- **Retire-Cluster Chinese**: <https://4ier.github.io/retire-cluster/README_CN.html>
 
 ## 📄 License
 
@@ -185,4 +189,11 @@ For issues or suggestions, please open an issue in the respective project reposi
 ---
 
 Built with ❤️ for the open source community | [GitHub](https://github.com/4ier)
+
 >>>>>>> master
+>>>>>>>
+>>>>>>
+>>>>>
+>>>>
+>>>
+>>
