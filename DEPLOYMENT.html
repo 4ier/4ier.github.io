@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>部署指南 - 4ier.github.io Documentation Site</title>
+    <style>
+        :root {
+            --primary-color: #007acc;
+            --secondary-color: #005a99;
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --border-color: #e1e5e9;
+            --hover-bg: #f8f9fa;
+            --success-color: #28a745;
+            --warning-color: #ffc107;
+            --danger-color: #dc3545;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: var(--bg-color);
+            padding: 2rem 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .content {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem 0;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: var(--secondary-color);
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .step {
+            background: var(--hover-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .step-number {
+            background: var(--primary-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+
+        .step-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', 'Ubuntu Mono', monospace;
+        }
+
+        .code-block .comment {
+            color: #68d391;
+        }
+
+        .alert {
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 4px solid;
+        }
+
+        .alert-success {
+            background: #f0fff4;
+            border-color: var(--success-color);
+            color: #2f855a;
+        }
+
+        .alert-warning {
+            background: #fffbf0;
+            border-color: var(--warning-color);
+            color: #b7791f;
+        }
+
+        .alert-info {
+            background: #ebf8ff;
+            border-color: var(--primary-color);
+            color: var(--secondary-color);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background-color 0.2s;
+            margin: 0.5rem 0;
+        }
+
+        .btn:hover {
+            background: var(--secondary-color);
+        }
+
+        .file-tree {
+            background: var(--hover-bg);
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 1rem 0;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 0, 0.3) 50%, transparent 100%);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        ul, ol {
+            padding-left: 2rem;
+            margin: 1rem 0;
+        }
+
+        li {
+            margin: 0.5rem 0;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: var(--hover-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 0 10px;
+            }
+            
+            .content {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 部署指南</h1>
+            <p>将Retire-Cluster文档部署到GitHub Pages</p>
+        </div>
+
+        <div class="content">
+            <div class="alert alert-info">
+                <strong>📖 关于这个部署</strong><br>
+                这个指南将帮助你将Retire-Cluster文档部署到你的4ier.github.io GitHub Pages站点。文档将支持双语（中英文）并具有专业的响应式设计。
+            </div>
+
+            <h2>🎯 快速部署步骤</h2>
+
+            <div class="step">
+                <div class="step-title">
+                    <span class="step-number">1</span>
+                    创建GitHub Pages仓库
+                </div>
+                <p>首先，你需要创建一个GitHub Pages仓库：</p>
+                <ol>
+                    <li>访问 <a href="https://github.com" target="_blank">GitHub</a> 并登录</li>
+                    <li>创建新仓库，命名为 <code>4ier.github.io</code></li>
+                    <li>确保仓库是 <strong>公开的</strong></li>
+                    <li>勾选 "Add a README file"</li>
+                </ol>
+            </div>
+
+            <div class="step">
+                <div class="step-title">
+                    <span class="step-number">2</span>
+                    克隆仓库到本地
+                </div>
+                <div class="code-block">
+<span class="comment"># 克隆你的GitHub Pages仓库</span>
+git clone https://github.com/4ier/4ier.github.io.git
+cd 4ier.github.io
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-title">
+                    <span class="step-number">3</span>
+                    复制文档站点文件
+                </div>
+                <p>将docs-site目录中的所有文件复制到你的GitHub Pages仓库：</p>
+                <div class="code-block">
+<span class="comment"># 复制所有文档文件（假设retire-cluster和4ier.github.io在同一目录下）</span>
+cp -r ../retire-cluster/docs-site/* ./
+
+<span class="comment"># 或者使用绝对路径</span>
+cp -r /path/to/retire-cluster/docs-site/* ./
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-title">
+                    <span class="step-number">4</span>
+                    配置GitHub Pages
+                </div>
+                <ol>
+                    <li>在GitHub上打开你的仓库设置</li>
+                    <li>在侧边栏找到 <strong>Pages</strong> 部分</li>
+                    <li>在 <strong>Source</strong> 下选择 <strong>GitHub Actions</strong></li>
+                    <li>保存设置</li>
+                </ol>
+            </div>
+
+            <div class="step">
+                <div class="step-title">
+                    <span class="step-number">5</span>
+                    提交和推送代码
+                </div>
+                <div class="code-block">
+<span class="comment"># 添加所有文件</span>
+git add .
+
+<span class="comment"># 创建提交</span>
+git commit -m "部署Retire-Cluster文档站点
+
+- 完整的Retire-Cluster项目文档
+- 双语支持（中英文）
+- 响应式设计和移动端优化
+- 自动GitHub Actions部署
+- 专业样式和导航
+
+🚀 在线访问: https://4ier.github.io"
+
+<span class="comment"># 推送到GitHub</span>
+git push origin main
+                </div>
+            </div>
+
+            <div class="alert alert-success">
+                <strong>🎉 部署完成！</strong><br>
+                GitHub Actions将自动构建和部署你的站点。几分钟后，你的文档将在 <a href="https://4ier.github.io" target="_blank">https://4ier.github.io</a> 上线。
+            </div>
+
+            <h2>📁 站点结构</h2>
+            
+            <div class="file-tree">
+/
+├── index.html                 # 4ier项目主页
+├── retire-cluster/            # Retire-Cluster文档
+│   ├── index.html            # 文档索引页
+│   ├── README.md             # 英文文档文件
+│   ├── README_CN.md          # 中文文档文件
+│   ├── architecture.md       # 系统架构
+│   ├── architecture_CN.md    # 系统架构（中文）
+│   ├── deployment-guide.md   # 部署指南
+│   ├── deployment-guide_CN.md # 部署指南（中文）
+│   └── ...                   # 其他文档文件
+└── .github/
+    └── workflows/
+        └── deploy.yml         # GitHub Actions部署工作流
+            </div>
+
+            <h2>🌟 功能特性</h2>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>多语言支持</h3>
+                    <p>完整的中英文双语文档，支持语言切换</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>响应式设计</h3>
+                    <p>移动端优先的响应式设计，支持所有设备</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>自动部署</h3>
+                    <p>GitHub Actions自动构建和部署，Markdown转HTML</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>专业样式</h3>
+                    <p>现代化设计，代码高亮，SEO优化</p>
+                </div>
+            </div>
+
+            <h2>🔗 访问链接</h2>
+
+            <ul>
+                <li><strong>主站：</strong> <a href="https://4ier.github.io" target="_blank">https://4ier.github.io</a></li>
+                <li><strong>Retire-Cluster（英文）：</strong> <a href="https://4ier.github.io/retire-cluster/" target="_blank">https://4ier.github.io/retire-cluster/</a></li>
+                <li><strong>Retire-Cluster（中文）：</strong> <a href="https://4ier.github.io/retire-cluster/README_CN.html" target="_blank">https://4ier.github.io/retire-cluster/README_CN.html</a></li>
+                <li><strong>GitHub仓库：</strong> <a href="https://github.com/4ier/retire-cluster" target="_blank">https://github.com/4ier/retire-cluster</a></li>
+            </ul>
+
+            <h2>🛠️ 自动化脚本</h2>
+
+            <div class="alert alert-info">
+                <strong>💡 提示：</strong> 我们为你准备了一个自动化部署脚本 <code>deploy.sh</code>，可以自动完成上述所有步骤。
+            </div>
+
+            <div class="code-block">
+<span class="comment"># 使用自动化脚本部署</span>
+cd /path/to/retire-cluster/docs-site
+chmod +x deploy.sh
+./deploy.sh ../4ier.github.io
+            </div>
+
+            <h2>🔧 自定义和维护</h2>
+
+            <h3>添加新项目</h3>
+            <p>要在主页添加新的开源项目，编辑 <code>index.html</code> 文件，在项目网格中添加新的项目卡片。</p>
+
+            <h3>更新文档</h3>
+            <p>要更新Retire-Cluster文档，只需：</p>
+            <ol>
+                <li>在retire-cluster仓库中更新Markdown文件</li>
+                <li>重新运行部署脚本</li>
+                <li>GitHub Actions会自动将Markdown转换为HTML并部署</li>
+            </ol>
+
+            <h3>样式定制</h3>
+            <p>站点使用CSS自定义属性，便于主题定制：</p>
+            <div class="code-block">
+:root {
+    --primary-color: #007acc;     <span class="comment">/* 主色调 */</span>
+    --secondary-color: #005a99;   <span class="comment">/* 辅助色 */</span>
+    --bg-color: #ffffff;          <span class="comment">/* 背景色 */</span>
+    --text-color: #333333;        <span class="comment">/* 文字颜色 */</span>
+}
+            </div>
+
+            <div class="alert alert-warning">
+                <strong>⚠️ 注意：</strong> 第一次部署后，GitHub Pages可能需要几分钟才能生效。如果遇到404错误，请稍等片刻再次访问。
+            </div>
+
+            <h2>🤝 技术支持</h2>
+
+            <p>如果在部署过程中遇到问题，请：</p>
+            <ul>
+                <li>检查GitHub Pages设置是否正确</li>
+                <li>确认GitHub Actions工作流是否成功运行</li>
+                <li>访问 <a href="https://github.com/4ier/retire-cluster/issues" target="_blank">项目Issues</a> 寻求帮助</li>
+            </ul>
+
+            <div class="alert alert-success">
+                <strong>🎉 祝贺！</strong><br>
+                你现在拥有一个专业的项目文档站点，支持双语访问，具有现代化设计和自动部署功能。欢迎分享给更多开发者！
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+                <a href="index.html" class="btn">🏠 返回主页</a>
+                <a href="https://github.com/4ier/retire-cluster" class="btn" target="_blank">📦 查看源码</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
